@@ -1,28 +1,28 @@
 const express = require('express');
 const router = express.Router();
 
-const Item = require('../../models/Item');
+const Employee = require('../../models/Employee');
 
 
 
 router.get('/', (req, res)=>{
-  Item.find()
+  Employee.find()
       .sort({name:1})
-      .then(items => res.json(items))
+      .then(employees => res.json(employees))
 });
 
 router.post('/', (req, res)=>{
-  const newItem = new Item({
+  const newEmployee = new Employee({
     name:req.body.name,
     contact:req.body.contact,
     age:req.body.age
   });
-  newItem.save().then(item=>res.json(item));
+  newEmployee.save().then(employee=>res.json(employee));
 });
 
 router.delete('/:id', (req, res)=>{
-  Item.findById(req.params.id)
-  .then(item=>item.remove().then(()=>res.json({success:true})))
+  Employee.findById(req.params.id)
+  .then(employee=>newEmployee.remove().then(()=>res.json({success:true})))
   .catch(err=>res.status(404).json({success:false}));
 });
 module.exports = router;

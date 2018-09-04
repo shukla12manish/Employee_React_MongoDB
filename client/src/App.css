@@ -17,3 +17,10 @@
 .App-intro {
   font-size: large;
 }
+
+.Layout{
+  background-color: darkcyan;
+  margin-top: 60px;
+  width:200px;
+  margin-left: 830px;
+}
