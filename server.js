@@ -4,8 +4,10 @@ const MongoClient = require('mongodb').MongoClient;
 const bodyParser = require('body-parser');
 const url = 'mongodb://localhost:27017/employee';
 const employees = require('./routes/api/employees');
+var cors = require('cors');
 
 const app = express();
+app.use(cors());
 
 app.use(bodyParser.json());
 
